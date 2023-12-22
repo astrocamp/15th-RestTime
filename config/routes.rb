@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   scope '(:lang)', locale: /en|tw/ do
-    resources :products
+    resources :products do
+      resources :comments, shallow: true
+    end
+
     resources :shops
 
     root 'products#index'

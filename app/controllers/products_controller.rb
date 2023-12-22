@@ -7,7 +7,10 @@ class ProductsController < ApplicationController
     @products = Product.all.order(id: :desc)
   end
 
-  def show; end
+  def show
+    @comment = Comment.new
+    @comments = @product.comments
+  end
 
   def new
     @product = Product.new

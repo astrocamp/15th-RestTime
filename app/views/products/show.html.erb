@@ -10,3 +10,18 @@
 <h3>售價:<%= @product.price %>元</h3>
 
 <p>描述:<%= simple_format(@product.description) %></p>
+
+<section>
+  <h3 class="text-xl">評論</h3>
+  <%= form_with(model: @comment,
+                url: product_comments_path(@product), 
+                data: { turbo: false}) do |form|%>
+    <%= form.text_area :content, class: 'input-field' %>
+      <%= form.submit '新增評論', class: 'btn'%>
+  <% end %>
+  <ul>
+  <% @comments.each do |comment|%>
+    <li><%= comment.content %></li>
+  <% end %>
+  </ul>
+</section>
