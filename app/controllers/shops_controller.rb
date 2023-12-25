@@ -14,6 +14,11 @@ class ShopsController < ApplicationController
     @shop = Shop.new
   end
 
+  def show
+    @comment = Comment.new
+    @comments = @shop.comments
+  end
+
   def create
     @shop = current_user.build_shop(shop_params)
     if @shop.save

@@ -26,10 +26,13 @@
     <div class="mt-4">
       <%= link_to "店家資訊變更", edit_shop_path(@shop), class: "btn btn-primary mr-2" %>
       <%= render 'form_select_shop_status' %>
+      
     </div>
     <% end %>
   <% end %>
+  <%= render "shops/comment" %>
 </section>
+
 
 
 

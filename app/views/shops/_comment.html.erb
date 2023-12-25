@@ -1,0 +1,21 @@
+<section>
+  <h3 class="text-xl">評論</h3>
+  <%= form_with(model: @comment, url: shop_comments_path(@shop), data: { turbo: false }) do |form| %>
+  <%= form.text_area :content, class: 'input-field' %>
+  <%= form.submit '新增評論', class: 'btn' %>
+<% end %>
+
+  <ul>
+    <% if @comments.present? %>
+      <% @comments.each do |comment| %>
+        <li><%= comment.content %>
+        <%= link_to '刪除評論', comment_path(comment), method: :delete, data: {
+            turbo_method: "delete", turbo_confirm: "確定刪除？"
+        } %>
+        </li>
+      <% end %>
+    <% else %>
+      <li>目前沒有評論</li>
+    <% end %>
+  </ul>
+</section>

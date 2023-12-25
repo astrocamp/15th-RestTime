@@ -3,7 +3,11 @@ Rails.application.routes.draw do
     root 'products#index'
 
     resources :products
-    resources :shops
+    resources :shops do
+      resources :comments, shallow: true
+    end
+    resources :comments, only: [:show,:destroy]
+    
     resource :service_times, only: %i[edit update]
 
     namespace :api do

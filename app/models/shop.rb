@@ -4,7 +4,7 @@ class Shop < ApplicationRecord
   enum status: { closed: 'closed', open: 'open', busy: 'busy', ShutDown: 'ShutDown' }
 
   belongs_to :user
-
+  
   has_one_attached :cover
   has_one_attached :cover do |f|
     f.variant :cover, resize_to_limit: [1000, 300]
@@ -14,6 +14,7 @@ class Shop < ApplicationRecord
   has_many :like_user, through: :like_shops, source: :user
   has_many :products
   has_many :service_times
+  has_many :comments, -> {order(id: :desc)}
 
   before_create :set_default_status
 
