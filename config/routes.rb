@@ -65,8 +65,5 @@ Rails.application.routes.draw do
 
     # Home page
     get "/index", to: "pages#index"
-
-
-
   end
 end
