@@ -63,7 +63,7 @@ Rails.application.routes.draw do
         end
       end
     end
-    
+
     # Static pages
     %w(about choose_us join_us contact_us terms privacy refund_policy payment order_question refund).each do |page|
       get "/#{page}", to: "pages##{page}"
