@@ -219,6 +219,5 @@ tw:
     sign_in_with_google_oauth2: "請用 GOOGLE 帳號密碼登入"
     Password Min Length: "密碼最少 %{min_length} 位數"
     Password Confirmation: "確認密碼"
-
     
 

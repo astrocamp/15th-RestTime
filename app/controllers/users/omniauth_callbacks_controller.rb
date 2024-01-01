@@ -14,5 +14,5 @@ module Users
       redirect_to new_user_registration_url, alert: 'No account found with the provided email. Please sign up.'
     end
   end
-
+  end
 end
