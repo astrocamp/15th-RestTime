@@ -1,5 +1,5 @@
 class VendorController < ApplicationController
-  before_action :create_default_shop
+  before_action :create_default_shop, only: %i[index]
   before_action :find_owned_shop, only: %i[edit show update destroy]
 
   # 搜尋修改後
@@ -76,7 +76,7 @@ class VendorController < ApplicationController
   end
 
   def create_default_shop
-    return if current_user.shop && current_user.role == 'vendor'
+    return unless current_user.vendor? && current_user.shop.nil?
 
     default_shop_data = {
       title: current_user.email,
@@ -90,11 +90,6 @@ class VendorController < ApplicationController
     }
 
     shop = current_user.build_shop(default_shop_data)
-
-    if shop.save
-      redirect_to vendor_index_path, notice: t(:updated, scope: %i[views shop message])
-    else
-      redirect_to root_path, alert: t(:wrong_way, scope: %i[views shop message])
-    end
+    shop.save
   end
 end
