@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class VendorController < ApplicationController
-  before_action :create_default_shop, only: %i[index]
+  before_action :create_default_shop
   before_action :find_owned_shop, only: %i[edit show update destroy]
 
   # 搜尋修改後
@@ -78,10 +78,10 @@ class VendorController < ApplicationController
   end
 
   def create_default_shop
-    return unless current_user.vendor? && current_user.shop.nil?
+    return unless vendor? && shop.nil?
 
-    shop = Shop.new(
-      title: current_user.email,
+    build_shop(
+      title: email,
       description: 'Default Description',
       district: 'Default District',
       city: 'Default City',
@@ -89,12 +89,6 @@ class VendorController < ApplicationController
       contact: 'Default Contact',
       tel: '000000000',
       contactphone: '000000000'
-    )
-
-    current_user.shop = shop
-
-    return unless shop.save
-
-    flash[:notice] = "歡迎#{current_user.email}初次登入，請您修改以下預設商店資訊"
+    ).save
   end
 end
