@@ -1,7 +1,9 @@
 class VendorController < ApplicationController
+  before_action :create_default_shop
   before_action :find_owned_shop, only: %i[edit show update destroy]
 
   # 搜尋修改後
+
   def index
     authorize Shop, :index?
     @shop = current_user&.shop
@@ -71,5 +73,20 @@ class VendorController < ApplicationController
     return unless current_user == @shop
 
     redirect_to root_path, alert: t(:wrong_way, scope: %i[views shop message])
+  end
+
+  def create_default_shop
+    return unless vendor? && shop.nil?
+
+    build_shop(
+      title: email,
+      description: 'Default Description',
+      district: 'Default District',
+      city: 'Default City',
+      street: 'Default Street',
+      contact: 'Default Contact',
+      tel: '000000000',
+      contactphone: '000000000'
+    ).save
   end
 end
