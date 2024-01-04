@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   # Global scope with locale parameter
   scope '(:lang)', locale: /en|tw/ do
-    root 'products#index'
+    root 'pages#index'
 
     # Devise routes
     devise_for :users, skip: :omniauth_callbacks, controllers: { sessions: 'users/sessions' }
