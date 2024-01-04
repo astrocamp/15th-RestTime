@@ -80,8 +80,8 @@ class VendorController < ApplicationController
   def create_default_shop
     return unless current_user.vendor? && current_user.shop.nil?
 
-    build_shop(
-      title: email,
+    shop = Shop.new(
+      title: current_user.email,
       description: 'Default Description',
       district: 'Default District',
       city: 'Default City',
@@ -89,9 +89,12 @@ class VendorController < ApplicationController
       contact: 'Default Contact',
       tel: '000000000',
       contactphone: '000000000'
-    }
+    )
 
-    shop = current_user.build_shop(default_shop_data)
-    shop.save
+    current_user.shop = shop
+
+    return unless shop.save
+
+    flash[:notice] = "歡迎#{current_user.email}初次登入，請您修改以下預設商店資訊"
   end
 end
