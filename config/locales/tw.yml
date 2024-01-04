@@ -227,8 +227,11 @@ tw:
     sign_in_with_google_oauth2: 請用 GOOGLE 帳號密碼登入
     password min length: 密碼最少 %{min_length} 位數
     password confirmation: 確認密碼
-    send me reset password instructions: 重設密碼
-
+    send me reset password instructions: 發送密碼
+    current password: 請輸入之前密碼
+    update: 更新
+    back: 回首頁
+    change my password: 變更密碼
   aasm:
     order state:
       pending: 待處理
@@ -241,3 +244,4 @@ tw:
       pay: 付款
       complete: 完成
       cancel: 取消
+ 
