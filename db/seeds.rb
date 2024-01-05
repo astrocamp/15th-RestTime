@@ -105,22 +105,6 @@ puts '消費者建立中......'
   else
     puts "❌建立消費者失敗，錯誤訊息：#{user.errors.full_messages.join(', ')}"
   end
-
-  order = Order.new(
-    booked_email: user.email,
-    user_id: user.id,
-    shop_id: rand(1..20),
-    product_id: rand(1..20),
-    serial: Faker::Alphanumeric.alphanumeric(number: 20),
-  )
-
-  if order.save
-    puts "📝訂單：#{order.serial} 已建立,🏡訂購店家:#{order.shop.title},產品:#{order.product.title}"
-    puts "------------------------------"
-  else
-    puts '❌訂單建立失敗'
-    puts "🔺錯誤訊息：#{order.errors.full_messages.join(', ')}"
-  end
 end
 
 # 建立 Demo 商家的方法
@@ -192,3 +176,33 @@ create_vendor(
   [{ title: '韓式髮根燙', service_min: 240, price: 1209 }, { title: '基礎護理 | 日本資生堂', service_min: 200, price: 989 }, { title: '剪+燙+護 | 日本資生堂', service_min: 120, price: 2860 }],
   10
 )
+
+#建立訂單中
+puts '建立訂單中....'
+
+30.times do
+
+  user = User.order("RANDOM()").first
+  shop = Shop.order("RANDOM()").first
+  product = shop&.products&.order("RANDOM()")&.first
+
+  if user && shop && product
+  order = Order.new(
+      booked_email: user.email,
+      user_id: user.id,
+      shop_id: shop.id,
+      product_id: product.id,
+      serial: Faker::Alphanumeric.alphanumeric(number: 20),
+    )
+
+      if order.save
+        puts "📝訂單：#{order.serial} 已建立,🏡訂購店家:#{order.shop.title},產品:#{order.product.title}"
+        puts "------------------------------"
+      else
+        puts '❌訂單建立失敗'
+        puts "🔺錯誤訊息：#{order.errors.full_messages.join(', ')}"
+      end
+    else
+      puts '❌找不到足夠的使用者、店家或產品。'
+    end
+  end
