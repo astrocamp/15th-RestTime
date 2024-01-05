@@ -192,11 +192,14 @@ puts '建立訂單中....'
       user_id: user.id,
       shop_id: shop.id,
       product_id: product.id,
+      service_min: product.service_min,
+      price: product.price,
+      service_date: Faker::Date.between(from: '2024-02-01', to: '2024-03-01'),
       serial: Faker::Alphanumeric.alphanumeric(number: 20),
     )
 
       if order.save
-        puts "📝訂單：#{order.serial} 已建立,🏡訂購店家:#{order.shop.title},產品:#{order.product.title}"
+        puts "📝訂單：#{order.serial} 已建立,🏡訂購店家:#{order.shop.user.email},產品:#{order.product.title}"
         puts "------------------------------"
       else
         puts '❌訂單建立失敗'
