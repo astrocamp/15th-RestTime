@@ -1,13 +1,23 @@
-<div class="w-52">
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+註冊1
+<div class="hero min-h-screen bg-base-200">
+  <div class="hero-content flex-col lg:flex-row-reverse">
+    <div class="text-center lg:text-left">
+      <h1 class="text-5xl font-bold">RESTIME</h1>
+      <p class="py-6">預約放鬆，今天開始 <br>
+      Start today , your restime .</p>
+    </div>
+    <div class="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 py-8">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name),class: 'card-body') do |f| %>
 
-<div class="form-control ">
-  <%= f.label :email, t('member.email'), class: "label-text text-lg" %>
-  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input input-bordered w-52 text-sm px-2 py-3 " %>
-</div>
+    <div class="form-control w-52 m-auto ">
+      <%= f.label :email, t('member.email'), class: "label" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input input-bordered" %>
+    </div>  
 
-<div class="form-control">
+
+        
+
+        <div class="form-control">
   <div>
     <%= f.label :password, t('member.password'), class: "label-text text-lg" %>
     <% if @minimum_password_length %>
@@ -19,18 +29,35 @@
   input-bordered w-52 text-sm px-2 py-3" %>
 </div>
 
-<div class="form-control">
-  <%= f.label :password_confirmation, t('member.password confirmation'), class: "label-text text-lg" %>
-  <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input input-bordered w-52 text-sm px-2 py-3 " %>
-</div>
-<div class="actions">
-    <%= f.submit t('member.sign up'), class: "btn btn-outline btn-success w-52" %>
+          
+            
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Password</span>
+            </label>
+            <input type="password" placeholder="password" class="input input-bordered" required />
+            <label class="label">
+              <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
+            </label>
+          </div>
+
+
+          <div class="form-control  w-52 m-auto mb-4   ">
+          <%= f.label :password, t('member.password'), class: "label" %>
+          <%= f.password_field :password, autocomplete: "current-password", class: "input input-bordered" %>
+        </div>
+
+
+
+
+          <div class="form-control mt-6">
+            <button class="btn btn-primary">Login</button>
+          </div>
+      
+      <% end %>
+    </div>
   </div>
-<% end %>
-  <%= render 'devise/shared/links' %>
 </div>
-
-
 
 
 
