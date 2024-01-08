@@ -21,6 +21,7 @@ tw:
 
 
   
+  search: 搜尋
   home: 首頁
   my_bookings: 我的預約 
   cancel: 取消
@@ -295,3 +296,17 @@ tw:
     change_booking_time: "Hello,Here is ResTime，%{booked_name}先生/女士的預約時間已經更改%{service_date}，請儘快確認您的訂單。"
     order_redeemed: "Hello,Here is ResTime，訂單編號<%{serial}>已經核銷，麻煩再確認您的訂單內容。"
     order_cancelled: "Hello,Here is ResTime，訂單編號<%{serial}>已經取消，麻煩再確認您的訂單內容。"
+  footer:
+    about_resttime: 認識ResttTime
+    our_origin: 我們的誕生
+    choose_us: 選擇我們
+    join_us: 加入我們
+    join_us: 聯繫我們
+    terms: 條款
+    user_terms: 使用者條款
+    privacy_policy: 隱私權政策
+    refund_policy: 退費政策
+    payment_issues: 付費問題
+    payment_methods: 付費方式
+    order_issues: 訂單問題
+    appointment_changes: 預約變更/退費
