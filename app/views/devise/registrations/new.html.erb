@@ -1,4 +1,3 @@
-註冊1
 <div class="hero min-h-screen bg-base-200">
   <div class="hero-content flex-col lg:flex-row-reverse">
     <div class="text-center lg:text-left">
@@ -10,29 +9,29 @@
         <div class="form-control w-52 m-auto">
           <%= f.label :email, t('member.email'), class: "label" %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input input-bordered" %>
-        </div>  
+        </div>
 
         <div class="form-control w-52 m-auto mt-4">
           <div>
             <%= f.label :password, t('member.password'), class: "label-text text-lg" %>
             <% if @minimum_password_length %>
-              <span class="text-sm">( <%= t('member.password min length', min_length: @minimum_password_length) %> )</span>
+              <span class="text-sm">( <%= t('member.password_min_length', min_length: @minimum_password_length) %> )</span>
             <% end %>
           </div>
           <%= f.password_field :password, autocomplete: "new-password", class: "input input-bordered" %>
         </div>
 
         <div class="form-control w-52 m-auto mt-4">
-          <%= f.label :password_confirmation, t('member.password confirmation'), class: "label-text text-lg" %>
+          <%= f.label :password_confirmation, t('member.password_confirmation'), class: "label-text text-lg" %>
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input input-bordered w-52 text-sm px-2 py-3 " %>
-        </div>
-        
-        <div class="form-control mt-4 w-52 m-auto px-8">
-          <%= f.submit t('member.sign up'), class: "btn btn-primary" %>
         </div>
 
         <div class="form-control mt-4 w-52 m-auto px-8">
-          <%= link_to t("member.log in"), new_session_path(resource_name), class: "btn btn-primary " %>
+          <%= f.submit t('member.sign_up'), class: "btn btn-primary" %>
+        </div>
+
+        <div class="form-control mt-4 w-52 m-auto px-8">
+          <%= link_to t("member.log_in"), new_session_path(resource_name), class: "btn btn-primary " %>
         </div>
       <% end %>
       <div class="mt-4 w-52 m-auto px-8">
@@ -41,3 +40,4 @@
     </div>
   </div>
 </div>
+
