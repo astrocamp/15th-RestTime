@@ -23,37 +23,37 @@
 <h3 class="text-2xl p-5"><%= t('homepage.featured_stores') %><h3>
 <div class="carousel carousel-center p-4 space-x-4 bg-ghost shadow-xl rounded-box">
     <div class="carousel-item">
-    <%= link_to root_path do %>
+    <%= link_to shop_path(id: 3) do %>
     <img src="<%= asset_url('pages/shops/1.avif') %>" class="rounded-box" style="width: 300px; height: 300px; object-fit: cover;" />
     <% end %>
     </div> 
   <div class="carousel-item">
-    <%= link_to root_path do %>
+    <%= link_to shop_path(id: 3) do %>
     <img src="<%= asset_url('pages/shops/2.avif') %>" class="rounded-box" style="width: 300px; height: 300px; object-fit: cover;" />
     <% end %>
   </div> 
   <div class="carousel-item">
-    <%= link_to root_path do %>
+    <%= link_to shop_path(id: 1) do %>
     <img src="<%= asset_url('pages/shops/3.avif') %>" class="rounded-box" style="width: 300px; height: 300px; object-fit: cover;" />
     <% end %>
   </div> 
   <div class="carousel-item">
-    <%= link_to root_path do %>
+    <%= link_to shop_path(id: 1) do %>
     <img src="<%= asset_url('pages/shops/4.avif') %>" class="rounded-box" style="width: 300px; height: 300px; object-fit: cover;" />
     <% end %>
   </div> 
   <div class="carousel-item">
-    <%= link_to root_path do %>
+    <%= link_to shop_path(id: 2) do %>
     <img src="<%= asset_url('pages/shops/5.avif') %>" class="rounded-box" style="width: 300px; height: 300px; object-fit: cover;" />
     <% end %>
   </div> 
   <div class="carousel-item">
-    <%= link_to root_path do %>
+    <%= link_to shop_path(id: 4) do %>
     <img src="<%= asset_url('pages/shops/6.avif') %>" class="rounded-box" style="width: 300px; height: 300px; object-fit: cover;" />
     <% end %>
   </div> 
   <div class="carousel-item">
-    <%= link_to root_path do %>
+    <%= link_to shop_path(id: 2) do %>
     <img src="<%= asset_url('pages/shops/7.avif') %>" class="rounded-box" style="width: 300px; height: 300px; object-fit: cover;" />
     <% end %>
   </div>
@@ -63,17 +63,47 @@
 <section class="mb-32">
     <h3 class="text-2xl p-5"><%= t('homepage.special_offer') %></h3>
     <div class="carousel carousel-center space-x-4 bg-ghost rounded-box">
-        <% (1..10).each do |index| %>
-            <div class="carousel-item">
-                <%= link_to root_path do %>
-                    <img src="<%= asset_url('pages/shops/8.avif') %>" class="rounded-box" style="width: 300px; height: 300px; object-fit: cover;" />
-                            <span class="card-title">Lorem</span>
+            <div class="carousel-item space-x-4 shadow-sm">
+                <%= link_to shop_path(id: 1) do %>
+                    <img src="<%= asset_url('pages/products/01.jpeg') %>" class="rounded-box" style="width: 300px; height: 300px; object-fit: cover;" />
+                            <span class="card-title">半永久霧眉</span>
                             <div class="card-actions justify-end">
-                                <div class="badge badge-outline">TWD$888起</div> 
+                                <div class="badge badge-outline">TWD$2588起</div> 
+                                <div class="badge badge-primary text-white">Hot!</div>
+                            </div>
+                <% end %>
+                <%= link_to shop_path(id: 1) do %>
+                    <img src="<%= asset_url('pages/products/02.webp') %>" class="rounded-box" style="width: 300px; height: 300px; object-fit: cover;" />
+                            <span class="card-title">足部單色輕薄凝膠</span>
+                            <div class="card-actions justify-end">
+                                <div class="badge badge-outline">TWD$489起</div> 
+                                <div class="badge badge-primary text-white">Hot!</div>
+                            </div>
+                <% end %>
+                <%= link_to shop_path(id: 4) do %>
+                    <img src="<%= asset_url('pages/products/03.jpeg') %>" class="rounded-box" style="width: 300px; height: 300px; object-fit: cover;" />
+                            <span class="card-title">泰式精油按摩</span>
+                            <div class="card-actions justify-end">
+                                <div class="badge badge-outline">TWD$1299起</div> 
+                                <div class="badge badge-primary text-white">Hot!</div>
+                            </div>
+                <% end %>
+                <%= link_to shop_path(id: 3) do %>
+                    <img src="<%= asset_url('pages/products/04.jpeg') %>" class="rounded-box" style="width: 300px; height: 300px; object-fit: cover;" />
+                            <span class="card-title">韓式髮根燙</span>
+                            <div class="card-actions justify-end">
+                                <div class="badge badge-outline">TWD$1209起</div> 
+                                <div class="badge badge-primary text-white">Hot!</div>
+                            </div>
+                <% end %>
+                <%= link_to shop_path(id: 3) do %>
+                    <img src="<%= asset_url('pages/products/05.jpeg') %>" class="rounded-box" style="width: 300px; height: 300px; object-fit: cover;" />
+                            <span class="card-title">基礎護髮 | 日本資生堂</span>
+                            <div class="card-actions justify-end">
+                                <div class="badge badge-outline">TWD$989起</div> 
                                 <div class="badge badge-primary text-white">Hot!</div>
                             </div>
                 <% end %>
             </div>
-        <% end %>
     </div>
 </section>
