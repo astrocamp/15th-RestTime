@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_30_112819) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_06_175513) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -67,8 +67,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_30_112819) do
     t.bigint "shop_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "content"
-    t.datetime "deleted_at"
     t.integer "rating", default: 0, null: false
     t.index ["shop_id"], name: "index_comments_on_shop_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
@@ -85,14 +83,13 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_30_112819) do
 
   create_table "orders", force: :cascade do |t|
     t.string "status", default: "pending"
-    t.datetime "booking_date"
     t.datetime "service_date"
     t.string "serial"
     t.decimal "price"
     t.integer "quantitiy", default: 1
     t.integer "service_min"
     t.string "booked_name"
-    t.string "booked_email", null: false
+    t.string "booked_email"
     t.bigint "user_id", null: false
     t.bigint "shop_id", null: false
     t.bigint "product_id", null: false
@@ -100,12 +97,13 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_30_112819) do
     t.datetime "cancelled_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "staff"
     t.datetime "payment_date"
     t.string "payment_type"
     t.string "payment_type_charge_fee"
-    t.string "rtn_code"
-    t.string "rtn_msg"
+    t.string "return_code"
+    t.string "return_msg"
+    t.string "staff"
+    t.string "trade_no"
     t.index ["cancelled_at"], name: "index_orders_on_cancelled_at"
     t.index ["product_id"], name: "index_orders_on_product_id"
     t.index ["serial"], name: "index_orders_on_serial"
@@ -130,18 +128,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_30_112819) do
     t.index ["shop_id"], name: "index_products_on_shop_id"
   end
 
-  create_table "ratings", force: :cascade do |t|
-    t.integer "score", default: 0
-    t.bigint "user_id", null: false
-    t.bigint "shop_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["shop_id"], name: "index_ratings_on_shop_id"
-    t.index ["user_id"], name: "index_ratings_on_user_id"
-  end
-
   create_table "service_times", force: :cascade do |t|
-    t.string "day_of_week", null: false
+    t.string "day_of_week"
     t.time "open_time"
     t.time "close_time"
     t.time "lunch_start"
@@ -183,7 +171,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_30_112819) do
     t.integer "role"
     t.string "provider"
     t.string "uid"
-
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -200,8 +187,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_30_112819) do
   add_foreign_key "orders", "shops"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "shops"
-  add_foreign_key "ratings", "shops"
-  add_foreign_key "ratings", "users"
   add_foreign_key "service_times", "shops"
   add_foreign_key "shops", "users"
 end
