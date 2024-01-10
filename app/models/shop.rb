@@ -31,6 +31,10 @@ class Shop < ApplicationRecord
   validates :contactphone, presence: true, length: { maximum: 50 },
                            format: { with: /\A[\d\+\-\(\)]+\z/, message: '格式不正確' }
 
+
+  default_scope { order(updated_at: :desc)}
+
+
   def set_default_status
     self.status ||= 'closed'
   end
