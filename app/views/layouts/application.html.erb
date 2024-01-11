@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-theme="frontstage">
+<html data-theme="mytheme">
   <head>
     <title>RestTime</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -13,11 +13,11 @@
   </head>
 
   <body>
+    <div class="mb-16">
     <%= render "shared/navbar" %>
-    <div class="mt-16">
-    <%= render "shared/flash" if flash.any? %>
     </div>
-    <main class="container p-8 mt-24 mx-auto">
+    <%= render "shared/flash" if flash.any? %>
+    <main class="container p-8 mx-auto">
       <%= yield %>
     </main>
     <%= render "shared/footer" %>
