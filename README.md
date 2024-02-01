@@ -1,8 +1,9 @@
-# RestTime
+# [RestTime](https://restime.fly.dev/)
 
-## [點擊進入網站 🌐](https://restime.fly.dev/)
+## [產品發表](https://www.youtube.com/watch?v=rNsAMAXmWno&ab_channel=%E4%BA%94%E5%80%8D%E5%AD%B8%E9%99%A2)
 
 ## 關於 ResTime
+![截圖 2024-01-30 下午1 31 14](https://github.com/astrocamp/15th-RestTime/assets/8993798/86eb7c40-2e44-479f-816c-f5792c00175d)
 
 ### 專案目的和背景
 
